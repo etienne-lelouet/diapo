@@ -23,7 +23,7 @@ mkdir -p media/poster
 
 echo 'rendering images thumbnails...'
 
-cat images | xargs -d '\n' mogrify -format webp -path media/thumbnail -strip -thumbnail '100x100^' -gravity center -extent 100x100
+cat images | xargs -r -d '\n' mogrify -format webp -path media/thumbnail -strip -thumbnail '100x100^' -gravity center -extent 100x100
 
 echo 'rendering videos thumbnails and posters...'
 
