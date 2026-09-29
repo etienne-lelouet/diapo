@@ -12,7 +12,7 @@ function convert_video {
 
 export -f convert_video
 
-find media/ \( -path media/thumbnail -o -path media/poster \) -prune -o -type f -print | parallel file --mime-type | grep -E ': (image|video)/[^:]*$' > media_list
+find media/ -maxdepth 1 -type f -print | parallel file --mime-type | grep -E ': (image|video)/[^:]*$' > media_list
 
 sed -n 's/: image\/[^:]*$//p' media_list > images
 
